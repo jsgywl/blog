@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="W.L">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="vue配置及概念项目结构(二)"/>
+  <meta property="og:description" content="" />
+  <meta property="og:site_name" content="生活是个圈"/>
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="jsgywl/recordblog"/>
+  
+    <link rel="alternate" href="/atom.xml" title="生活是个圈" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>生活是个圈</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  
+  <link rel="stylesheet" href="/css/style.light.css">
+
+  <!-- Google Analytics -->
+  
+
+</head>
+
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/img/default-banner-dark.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">vue配置及概念项目结构(二)</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  主页
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  档案
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/jsgywl">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:332637062@qq.com">
+                  
+                  邮箱
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By W.L</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2019-03-11</span>
+            <span class="time">00:21:09</span>
+          </span>
+          
+          <!--  Categories  -->
+            <span class="categories info">Under 
+
+<a href="/categories/前端/">前端</a>
+</span>
+          
+        </div>
+        <!-- Tags -->
+        
+          <div class="post-tags text-muted">
+            Tags: 
+
+<a class="tag" href="/tags/vue/">#vue</a>
+
+
+          </div>
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <p>vue配置及概念概述 项目结构<br><a id="more"></a></p>
+<h2 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h2><blockquote>
+<p>.<br>├── build/                      # webpack 配置文件<br>│   └── …<br>├── config/<br>│   ├── index.js                # 主要的项目配置<br>│   └── …<br>├── src/<br>│   ├──main.js                  # app 入口文件<br>│   ├── App.vue                 # main app 组件<br>│   ├── components/             # ui组件<br>│   │   └── …<br>│   └── assets/                 # 模块资源（由webpack进行处理）<br>│       └── …<br>├── static/                     # 纯静态资源 (直接拷贝)<br>├── test/<br>│   └── unit/     # 单元测试<br>│   │   ├── specs/              # 测试规格文件<br>│   │   ├── index.js            # 测试构建入口文件<br>│   │   └── karma.conf.js       # 测试运行器配置文件<br>│   └── e2e/                    # e2e测试<br>│   │   ├── specs/              # 测试规格文件<br>│   │   ├── custom-assertions/  # e2e测试的自定义断言<br>│   │   ├── runner.js           # 测试运行器脚本<br>│   │   └── nightwatch.conf.js  # 测试运行器配置文件<br>├── .babelrc                    # babel配置<br>├── .postcssrc.js               # postcss 配置<br>├── .eslintrc.js                # eslint 配置<br>├── .editorconfig               # editor 配置<br>├── index.html                  # index.html 模板<br>└── package.json                # 构建脚本和依赖</p>
+</blockquote>
+<h2 id="build"><a href="#build" class="headerlink" title="build/"></a>build/</h2><p>该目录包含了开发环境和生产环境的webpack构建配置。通常你不需要改动这些文件，如果想要自定义Webpack loaders，可以查看build/webpack.base.conf.js这个文件。<br>config/index.js<br>该文件暴露出了一些最通用的构建安装配置选项，是主要配置文件。更多细节请查看开发环境API Proxying和后端框架集成。</p>
+<h2 id="src"><a href="#src" class="headerlink" title="src/"></a>src/</h2><p>你的应用的大多数代码都应该放在这里。至于里面的文件结构是什么样的，还需要你自己好好策划一下。如果你正在使用Vuex，可以参考vuex示例项目里的结构Vuex应用推荐。</p>
+<h2 id="static"><a href="#static" class="headerlink" title="static/"></a>static/</h2><p>这里放的是那些你不想让Webpack接管的文件。它们会被直接拷贝到webpack构建assets所生成的路径下面。<br>查看 处理静态资源获取更多细节。</p>
+<h2 id="test-unit"><a href="#test-unit" class="headerlink" title="test/unit"></a>test/unit</h2><p>包含单元测试相关的文件。查看 单元测试 获取更多细节。</p>
+<h2 id="test-e2e"><a href="#test-e2e" class="headerlink" title="test/e2e"></a>test/e2e</h2><p>包含e2e测试相关的文件。查看 e2e测试 获取更多细节。</p>
+<h2 id="index-html"><a href="#index-html" class="headerlink" title="index.html"></a>index.html</h2><p>这就是我们单页面应用的模板 index.html文件。在开发和构建过程中，Webpack会生成静态资源，并且引用这些静态资源的URL会被自动地添加到这个模板里，渲染出最终的HTML。</p>
+<h2 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h2><p>NPM打包元文件，包含所有的构建依赖和构建指令.</p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        <p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+<script src="/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  </body>
+</html>
+
